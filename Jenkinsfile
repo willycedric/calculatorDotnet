@@ -56,11 +56,18 @@ stage('Checkout') {
 }
 stage('Build') {
             steps {
-                echo 'Run coverage and CLEAN UP Before please'
-                sh '/usr/local/bin/opt/bin/sbtGitActivator; /usr/local/bin/opt/play-2.5.10/bin/activator -Dsbt.global.base=.sbt -Dsbt.ivy.home=/home/jenkins/.ivy2 -Divy.home=/home/jenkins/.ivy2 compile coverage test coverageReport coverageOff dist'
+                echo 'Build solution'
+                // sh '/usr/local/bin/opt/bin/sbtGitActivator; /usr/local/bin/opt/play-2.5.10/bin/activator -Dsbt.global.base=.sbt -Dsbt.ivy.home=/home/jenkins/.ivy2 -Divy.home=/home/jenkins/.ivy2 compile coverage test coverageReport coverageOff dist'
+                sh 'dotnet build'
             }
         }
-
+stage('Unit Test') {
+            steps {
+                echo 'Run Unit test'
+                // sh '/usr/local/bin/opt/bin/sbtGitActivator; /usr/local/bin/opt/play-2.5.10/bin/activator -Dsbt.global.base=.sbt -Dsbt.ivy.home=/home/jenkins/.ivy2 -Divy.home=/home/jenkins/.ivy2 compile coverage test coverageReport coverageOff dist'
+                sh "dotnet test --logger 'trx;LogFileName=somename.trx'"
+            }
+        }
 
 
 
