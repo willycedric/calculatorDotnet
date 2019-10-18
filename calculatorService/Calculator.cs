@@ -6,7 +6,10 @@ namespace calculatorService
     {
 	public int add(int a, int b)
 	{
-		return a +b;
+		if(a == 0)
+		  return 1 +b;
+		else
+		  return a +b;
 	}
     }
 }
