@@ -59,14 +59,14 @@ stage('Build') {
             steps {
                 echo 'Build solution'
                 // sh '/usr/local/bin/opt/bin/sbtGitActivator; /usr/local/bin/opt/play-2.5.10/bin/activator -Dsbt.global.base=.sbt -Dsbt.ivy.home=/home/jenkins/.ivy2 -Divy.home=/home/jenkins/.ivy2 compile coverage test coverageReport coverageOff dist'
-                sh '/usr/local/share/dotnet build'
+                sh 'dotnet build'
             }
         }
 stage('Unit Test') {
             steps {
                 echo 'Run Unit test'
                 // sh '/usr/local/bin/opt/bin/sbtGitActivator; /usr/local/bin/opt/play-2.5.10/bin/activator -Dsbt.global.base=.sbt -Dsbt.ivy.home=/home/jenkins/.ivy2 -Divy.home=/home/jenkins/.ivy2 compile coverage test coverageReport coverageOff dist'
-                sh "/usr/local/share/dotnet test --logger 'trx;LogFileName=somename.trx'"
+                sh "dotnet test --logger 'trx;LogFileName=somename.trx'"
             }
         }
 
