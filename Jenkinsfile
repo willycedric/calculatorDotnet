@@ -46,7 +46,7 @@ stages {
                 echo "Deploy to QA? :: ${params.DEPLOY_QA}"
                 echo "Deploy to UAT? :: ${params.DEPLOY_UAT}"
                 echo "Deploy to PROD? :: ${params.DEPLOY_PROD}"
-                sh 'rm -rf target/universal/*.zip'
+                //sh 'rm -rf target/universal/*.zip'
             }
         }
     }
@@ -99,6 +99,7 @@ stage('Unit Test') {
         }
         failure {
             echo "BUILD FAILURE"
+            sh "dotnet test --logger 'trx;LogFileName=somename.trx'"
         }
     }
 }
