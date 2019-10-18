@@ -31,7 +31,7 @@ environment {
 //     timeout time:10, unit:'MINUTES'
 // }
 parameters {
-    string(defaultValue: "develop", description: 'Branch Specifier', name: 'SPECIFIER')
+    string(defaultValue: "master", description: 'Branch Specifier', name: 'SPECIFIER')
     booleanParam(defaultValue: false, description: 'Deploy to QA Environment ?', name: 'DEPLOY_QA')
     booleanParam(defaultValue: false, description: 'Deploy to UAT Environment ?', name: 'DEPLOY_UAT')
     booleanParam(defaultValue: false, description: 'Deploy to PROD Environment ?', name: 'DEPLOY_PROD')
