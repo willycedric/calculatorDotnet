@@ -1,13 +1,14 @@
 #!groovy
 pipeline {
-agent {
-  docker {
-    image 'jenkinsslave:latest'
-    registryUrl 'http://8598567586.dkr.ecr.us-west-2.amazonaws.com'
-    registryCredentialsId 'ecr:us-east-1:3435443545-5546566-567765-3225'
-    args '-v /home/centos/.ivy2:/home/jenkins/.ivy2:rw -v jenkins_opt:/usr/local/bin/opt -v jenkins_apijenkins:/home/jenkins/config -v jenkins_logs:/var/logs -v jenkins_awsconfig:/home/jenkins/.aws --privileged=true -u jenkins:jenkins'
-  }
-}
+// agent {
+//   docker {
+//     image 'jenkinsslave:latest'
+//     registryUrl 'http://8598567586.dkr.ecr.us-west-2.amazonaws.com'
+//     registryCredentialsId 'ecr:us-east-1:3435443545-5546566-567765-3225'
+//     args '-v /home/centos/.ivy2:/home/jenkins/.ivy2:rw -v jenkins_opt:/usr/local/bin/opt -v jenkins_apijenkins:/home/jenkins/config -v jenkins_logs:/var/logs -v jenkins_awsconfig:/home/jenkins/.aws --privileged=true -u jenkins:jenkins'
+//   }
+// }
+agent any
 environment {
     APP_NAME = 'calculatorDotnet'
     BUILD_NUMBER = "${env.BUILD_NUMBER}"
