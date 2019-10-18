@@ -84,7 +84,7 @@ stage('Unit Test') {
          */
         always {
             echo "I AM ALWAYS first"
-            //notifyBuild("${currentBuild.currentResult}")
+            notifyBuild("${currentBuild.currentResult}")
         }
         aborted {
             echo "BUILD ABORTED"
