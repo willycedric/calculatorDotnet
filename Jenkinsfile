@@ -142,7 +142,7 @@ def isPRMergeBuild() {
 def notifyBuild(String buildStatus = 'STARTED') {
     // build status of null means successful
     buildStatus = buildStatus ?: 'SUCCESS'
-
+    println "build status $buildStatus"
     def branchName = getCurrentBranch()
     def shortCommitHash = getShortCommitHash()
     def changeAuthorName = getChangeAuthorName()
@@ -178,6 +178,6 @@ def notifyBuild(String buildStatus = 'STARTED') {
     // hipchatSend(color: color, notify: true, message: summary, token: "${env.HIPCHAT_TOKEN}",
     //     failOnError: true, room: "${env.HIPCHAT_ROOM}", sendAs: 'Jenkins', textFormat: true)
 if (buildStatus == 'FAILURE') {
-       // emailext attachLog: true, body: summary, compressLog: true, recipientProviders: [brokenTestsSuspects(), brokenBuildSuspects(), culprits()], replyTo: 'noreply@yourdomain.com', subject: subject, to: 'mpatel@yourdomain.com'
+        //emailext attachLog: true, body: summary, compressLog: true, recipientProviders: [brokenTestsSuspects(), brokenBuildSuspects(), culprits()], replyTo: 'w.dongmo@gmail.com', subject: subject, to: 'w.dongmo@gmail.com'
     }
 }
